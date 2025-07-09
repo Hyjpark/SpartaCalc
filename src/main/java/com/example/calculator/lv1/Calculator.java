@@ -1,4 +1,4 @@
-package com.example.calculator;
+package com.example.calculator.lv1;
 
 public class Calculator {
     public static void main(String[] args) {
