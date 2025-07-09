@@ -1,7 +1,6 @@
 package com.example.calculator.lv2;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 
 public class Calculator {
@@ -28,6 +27,12 @@ public class Calculator {
                 default:
                     throw new IllegalArgumentException();
             }
+
+            System.out.println("결과: " + result);
+
+            // 연산 결과 필드에 저장
+            calcResult.add(result);
+
         } catch (ArithmeticException e) {
             System.out.println("나눗셈 연산에서 분모(두번재 정수)에 0이 입력될 수 없습니다.");
         } catch (IllegalArgumentException e) {
