@@ -16,5 +16,25 @@ public class Calculator {
         // 사칙연산 기호(+, -, *, /)를 입력 받기
         System.out.print("사칙연산 기호를 입력하세요: ");
         char operator = sc.next().charAt(0);
+
+        // 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산을 진행한 후 결과값을 출력
+        int result = 0;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case  '/':
+                result = num1 / num2;
+                break;
+        }
+
+        System.out.println("결과: " + result);
     }
 }
