@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Calculator {
     // 연산 결과를 저장하는 컬렉션 타입 필드
-    List<Integer> calcResult = new ArrayList<>();
+    private List<Integer> calcResult = new ArrayList<>();
 
     public int calculate(int num1, int num2, char operator) {
         int result = 0;
@@ -40,5 +40,15 @@ public class Calculator {
         }
 
         return result;
+    }
+
+    // Getter 메서드 구현
+    public List<Integer> getCalcResult() {
+        return calcResult;
+    }
+
+    // Setter 메서드 구현
+    public void setCalcResult(List<Integer> calcResult) {
+        this.calcResult = calcResult;
     }
 }
