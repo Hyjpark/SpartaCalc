@@ -1,6 +1,8 @@
 package com.example.calculator.lv2;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -37,5 +39,17 @@ public class App {
             String exitStr = sc.nextLine();
             if (exitStr.equals("exit")) break;
         }
+
+        // Getter, Setter 활용
+        System.out.println("저장된 연산 결과 : " + calculator.getCalcResult());
+
+        List<Integer> replaceList = new ArrayList<>();
+        replaceList.add(1);
+        replaceList.add(2);
+        replaceList.add(3);
+
+        calculator.setCalcResult(replaceList);
+
+        System.out.println("바뀐 연산 결과 : " + calculator.getCalcResult());
     }
 }
