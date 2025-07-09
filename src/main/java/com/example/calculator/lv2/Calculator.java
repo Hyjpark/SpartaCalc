@@ -42,6 +42,12 @@ public class Calculator {
         return result;
     }
 
+    public void removeResult() {
+        int firstResult = calcResult.get(0);
+        
+        calcResult.remove(Integer.valueOf(firstResult));
+    }
+
     // Getter 메서드 구현
     public List<Integer> getCalcResult() {
         return calcResult;

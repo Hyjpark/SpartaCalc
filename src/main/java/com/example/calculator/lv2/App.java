@@ -43,6 +43,11 @@ public class App {
         // Getter, Setter 활용
         System.out.println("저장된 연산 결과 : " + calculator.getCalcResult());
 
+        // 가장 먼저 저장된 데이터를 삭제
+        calculator.removeResult();
+
+        System.out.println("가장 먼저 저장된 데이터를 삭제 후 : " + calculator.getCalcResult());
+
         List<Integer> replaceList = new ArrayList<>();
         replaceList.add(1);
         replaceList.add(2);
@@ -50,6 +55,6 @@ public class App {
 
         calculator.setCalcResult(replaceList);
 
-        System.out.println("바뀐 연산 결과 : " + calculator.getCalcResult());
+        System.out.println("Setter로 바뀐 연산 결과 : " + calculator.getCalcResult());
     }
 }
