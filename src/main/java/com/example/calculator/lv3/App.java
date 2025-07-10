@@ -13,14 +13,16 @@ public class App {
             try {
                 // 양의 정수(0 포함)를 입력 받기
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                Number num1 = sc.nextInt();
+                Number num1 = parseNumber(sc.next());
 
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                Number num2 = sc.nextInt();
+                Number num2 = parseNumber(sc.next());
 
                 // 사칙연산 기호(+, -, *, /)를 입력 받기
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 String operator = sc.next();
+
+                System.out.println(num1 + " " + operator + " " + num2);
 
                 // 연산을 수행하는 클래스 메서드 호출
                 aritCalc.calculate(num1, num2, operator);
@@ -35,6 +37,16 @@ public class App {
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String exitStr = sc.nextLine();
             if (exitStr.equals("exit")) break;
+        }
+    }
+
+    public static Number parseNumber(String input) {
+        // 입력 문자열에 소수점이나 지수 표기가 있으면 실수로 판단
+        if (input.contains(".")) {
+            return Double.parseDouble(input);
+        } else {
+            // 정수 범위 내라면 Integer
+            return Integer.parseInt(input);
         }
     }
 }
