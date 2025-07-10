@@ -1,18 +1,22 @@
 package com.example.calculator.lv3;
 
-public class ArithmeticCalculator  {
-    public int calculate(int num1, int num2, String operator) {
-        int result = 0;
+public class ArithmeticCalculator<T extends Number> {
+    private T result;
+    
+    public <S extends Number> T calculate(S num1, S num2, String operator) {
         try {
             for (OperatorType op : OperatorType.values()) {
-                System.out.println(op.toString().equals(operator));
                 if (op.toString().equals(operator)) {
-                    result = op.calc(num1, num2);
+                    Double tempResult = op.calc(num1, num2);
+                    this.result = (T) tempResult;
                 }
             }
         } catch (IllegalArgumentException e) {
             System.out.println("잘못된 연산자입니다.");
         }
-        return result;
+
+        System.out.println("this.result = " + this.result);
+        
+        return this.result;
     }
 }
