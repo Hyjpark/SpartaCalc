@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        ArithmeticCalculator aritCalc = new ArithmeticCalculator();
 
         Scanner sc = new Scanner(System.in);
 
@@ -25,7 +24,13 @@ public class App {
                 System.out.println(num1 + " " + operator + " " + num2);
 
                 // 연산을 수행하는 클래스 메서드 호출
-                aritCalc.calculate(num1, num2, operator);
+                if (num1 instanceof Double || num2 instanceof Double) {
+                    ArithmeticCalculator aritCalc = new ArithmeticCalculator<>(Double.class);
+                    aritCalc.calculate(num1, num2, operator);
+                } else {
+                    ArithmeticCalculator aritCalc = new ArithmeticCalculator<>(Integer.class);
+                    aritCalc.calculate(num1, num2, operator);
+                }
 
             } catch (InputMismatchException e) {
                 System.out.println("정수를 입력해야 합니다.");
