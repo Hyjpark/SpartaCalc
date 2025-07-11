@@ -21,11 +21,11 @@ public class ArithmeticCalculator<T extends Number> {
                     saveResult.add(result);
                 }
             }
+
+            System.out.println("결과 : " + result);
         } catch (ArithmeticException e) {
             System.out.println("0으로 나눌 수 없습니다.");
         }
-
-        System.out.println("결과 : " + result);
 
         return result;
     }

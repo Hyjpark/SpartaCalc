@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
+        SmartCalculator calculator = new SmartCalculator();
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -21,19 +22,8 @@ public class App {
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 String operator = sc.next();
 
-                System.out.println(num1 + " " + operator + " " + num2);
-
-                boolean isDouble = (num1 instanceof Double || num2 instanceof Double);
-                boolean isDivide = operator.equals("/"); // double 연산이 될 수 있는 나눗셈 연산 체크
-
-                // 연산을 수행하는 클래스 메서드 호출
-                if (isDouble || isDivide) {
-                    ArithmeticCalculator aritCalc = new ArithmeticCalculator<>(Double.class);
-                    aritCalc.calculate(num1, num2, operator);
-                } else {
-                    ArithmeticCalculator aritCalc = new ArithmeticCalculator<>(Integer.class);
-                    aritCalc.calculate(num1, num2, operator);
-                }
+                calculator.calculate(num1, num2, operator);
+                calculator.printResultsAboveInputs(num1, num2, calculator.getCalcSaveResult());
 
             } catch (InputMismatchException e) {
                 System.out.println("정수를 입력해야 합니다.");
