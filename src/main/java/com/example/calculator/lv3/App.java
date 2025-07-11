@@ -23,8 +23,11 @@ public class App {
 
                 System.out.println(num1 + " " + operator + " " + num2);
 
+                boolean isDouble = (num1 instanceof Double || num2 instanceof Double);
+                boolean isDivide = operator.equals("/"); // double 연산이 될 수 있는 나눗셈 연산 체크
+
                 // 연산을 수행하는 클래스 메서드 호출
-                if (num1 instanceof Double || num2 instanceof Double) {
+                if (isDouble || isDivide) {
                     ArithmeticCalculator aritCalc = new ArithmeticCalculator<>(Double.class);
                     aritCalc.calculate(num1, num2, operator);
                 } else {
