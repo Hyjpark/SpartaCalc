@@ -8,7 +8,13 @@ public enum OperatorType {
     PLUS("+", (num1, num2) -> num1 + num2),
     MINUS("-",  (num1, num2) -> num1 - num2),
     MULTIPLY("*",  (num1, num2) -> num1 * num2),
-    DIVIDE("/",  (num1, num2) -> num1 / num2),;
+    DIVIDE("/",  (num1, num2) -> {
+        if (num2 != 0) {
+            return num1 / num2;
+        } else {
+            throw new ArithmeticException();
+        }
+    });
 
     // 매핑을 위한 필드 값 추가
     private final String operator;
