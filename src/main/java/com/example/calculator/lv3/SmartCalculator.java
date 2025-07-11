@@ -30,7 +30,7 @@ public class SmartCalculator {
         return calcSaveResult;
     }
 
-    public void printResultsAboveInputs(Number num1, Number num2, List<Number> calcSaveResult) {
+    public void printResultsAboveInput(Number num1, Number num2, List<Number> calcSaveResult) {
         double miNum = Math.min(num1.doubleValue(), num2.doubleValue());
         greaterResults = calcSaveResult.stream()
                 .filter(r -> r.doubleValue() > miNum)

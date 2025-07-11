@@ -24,7 +24,7 @@ public class ArithmeticCalculator<T extends Number> {
 
             System.out.println("결과 : " + result);
         } catch (ArithmeticException e) {
-            System.out.println("0으로 나눌 수 없습니다.");
+            throw new ArithmeticException("0으로 나눌 수 없습니다.");
         }
 
         return result;

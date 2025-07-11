@@ -2,6 +2,7 @@ package com.example.calculator.lv3;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class App {
     public static void main(String[] args) {
@@ -22,11 +23,20 @@ public class App {
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 String operator = sc.next();
 
-                calculator.calculate(num1, num2, operator);
-                calculator.printResultsAboveInputs(num1, num2, calculator.getCalcSaveResult());
+                String patternOperator = "[+\\-*/]";
+                boolean isValidOperator = Pattern.matches(patternOperator, operator);
 
-            } catch (InputMismatchException e) {
-                System.out.println("정수를 입력해야 합니다.");
+                if(!isValidOperator) throw new IllegalArgumentException("지원하지 않는 연산자: "+ operator);
+
+                calculator.calculate(num1, num2, operator);
+                calculator.printResultsAboveInput(num1, num2, calculator.getCalcSaveResult());
+
+            } catch (NumberFormatException e) {
+                System.out.println("숫자가 아닙니다.");
+            } catch (IllegalArgumentException e) {
+                System.out.println("지원하지 않는 연산자입니다. (+, -, *, /) 중 하나를 입력하세요.");
+            } catch (ArithmeticException e) {
+                System.out.println("0으로 나눌 수 없습니다.");
             }
 
             sc.nextLine(); // 개행 제거
