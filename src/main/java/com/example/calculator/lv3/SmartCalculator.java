@@ -19,4 +19,12 @@ public class SmartCalculator {
         }
     }
 
+    public List<Number> getCalcSaveResult() {
+        List<Number> calcSaveResult = new ArrayList<>();
+        calcSaveResult.addAll(iniCalc.getSaveResult());
+        calcSaveResult.addAll(doubleCalc.getSaveResult());
+
+        return calcSaveResult;
+    }
+
 }
