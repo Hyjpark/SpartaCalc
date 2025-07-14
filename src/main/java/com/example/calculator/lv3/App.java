@@ -28,8 +28,8 @@ public class App {
 
                 if(!isValidOperator) throw new IllegalArgumentException("지원하지 않는 연산자: "+ operator);
 
+                // 결과 출력
                 System.out.println("연산 결과: " + calculator.calculate(num1, num2, operator));
-                calculator.printResultsAboveInput(num1, num2, calculator.getCalcSaveResult());
 
             } catch (NumberFormatException e) {
                 System.out.println("숫자가 아닙니다.");
@@ -46,6 +46,12 @@ public class App {
             String exitStr = sc.nextLine();
             if (exitStr.equals("exit")) break;
         }
+
+        // 저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력
+        System.out.println("저장된 연산 결과들: " + calculator.getCalcSaveResult());
+        System.out.print("기준값 입력(입력된 값보다 큰 결과를 노출): ");
+        Number inputNum = parseNumber(sc.next());
+        System.out.println("입력된 값보다 큰 연산 결과 : " + calculator.getResultsAboveInput(inputNum));
     }
 
     public static Number parseNumber(String input) {

@@ -8,8 +8,6 @@ public class SmartCalculator {
     private final ArithmeticCalculator iniCalc = new ArithmeticCalculator<>(Integer.class);
     private final ArithmeticCalculator doubleCalc = new ArithmeticCalculator<>(Double.class);
 
-    private List<Number> greaterResults =  new ArrayList<>();
-
     public Number calculate(Number num1, Number num2, String operator) {
         return selectCalculator(num1, num2, operator).execute(num1, num2, operator);
     }
@@ -33,13 +31,11 @@ public class SmartCalculator {
         return calcSaveResult;
     }
 
-    public void printResultsAboveInput(Number num1, Number num2, List<Number> calcSaveResult) {
-        double miNum = Math.min(num1.doubleValue(), num2.doubleValue());
-        greaterResults = calcSaveResult.stream()
-                .filter(r -> r.doubleValue() > miNum)
+    public List<Number> getResultsAboveInput(Number input) {
+        double num = input.doubleValue();
+        return getCalcSaveResult().stream()
+                .filter(r -> r.doubleValue() > num)
                 .collect(Collectors.toList());
-
-        System.out.println("입력된 값보다 큰 연산 결과 : " + greaterResults);
     }
 
 }
