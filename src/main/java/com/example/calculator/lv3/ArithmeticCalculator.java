@@ -12,17 +12,14 @@ public class ArithmeticCalculator<T extends Number> {
     }
 
     public <S extends Number> T execute(S num1, S num2, String operator) {
-        T result = null;
         try {
             OperatorType op = OperatorType.findOperator(operator);
-            Double tempResult = op.calc(num1, num2);
-            result = castResult(tempResult);
+            T result = castResult(op.calc(num1, num2));
             saveResult.add(result);
+            return result;
         } catch (ArithmeticException e) {
             throw new ArithmeticException("0으로 나눌 수 없습니다.");
         }
-
-        return result;
     }
 
     private T castResult(Double result) {
