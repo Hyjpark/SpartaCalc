@@ -28,7 +28,7 @@ public class App {
 
                 if(!isValidOperator) throw new IllegalArgumentException("지원하지 않는 연산자: "+ operator);
 
-                calculator.calculate(num1, num2, operator);
+                System.out.println("연산 결과: " + calculator.calculate(num1, num2, operator));
                 calculator.printResultsAboveInput(num1, num2, calculator.getCalcSaveResult());
 
             } catch (NumberFormatException e) {
