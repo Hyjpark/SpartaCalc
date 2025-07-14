@@ -38,7 +38,7 @@ public enum OperatorType {
 
     public static OperatorType findOperator(String symbol) {
         return Optional.ofNullable(OPERATOR_MAP.get(symbol))
-                .orElseThrow(() -> new IllegalArgumentException("연산자를 찾을 수 없습니다."))
+                .orElseThrow(() -> new IllegalArgumentException("연산자를 찾을 수 없습니다."));
     }
 
     // 매개변수로 받은 타입 상관 없이 더블로 반환
