@@ -14,13 +14,10 @@ public class ArithmeticCalculator<T extends Number> {
     public <S extends Number> T execute(S num1, S num2, String operator) {
         T result = null;
         try {
-            for (OperatorType op : OperatorType.values()) {
-                if (op.toString().equals(operator)) {
-                    Double tempResult = op.calc(num1, num2);
-                    result = castResult(tempResult);
-                    saveResult.add(result);
-                }
-            }
+            OperatorType op = OperatorType.findOperator(operator);
+            Double tempResult = op.calc(num1, num2);
+            result = castResult(tempResult);
+            saveResult.add(result);
         } catch (ArithmeticException e) {
             throw new ArithmeticException("0으로 나눌 수 없습니다.");
         }
